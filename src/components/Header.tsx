@@ -12,6 +12,7 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer";
 import { Menu, X } from "lucide-react";
+import { motion } from "framer-motion";
 
 const links = [
   { name: "Home", href: "/" },
@@ -23,7 +24,13 @@ const links = [
 function Header() {
   const [active, setActive] = useState("");
   return (
-    <header className="py-12 px-5 md:px-10 text-accent-foreground">
+    <motion.header
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+      viewport={{ once: true, amount: 0.2 }}
+      className="py-12 px-5 md:px-10 text-accent-foreground"
+    >
       <div className="container flex justify-between items-center">
         <h1 className="text-2xl font-oswald font-bold">
           <Link href="/">AhmedRamadan</Link>
@@ -46,7 +53,7 @@ function Header() {
           <DrawerDemo active={active} setActive={setActive} />
         </div>
       </div>
-    </header>
+    </motion.header>
   );
 }
 

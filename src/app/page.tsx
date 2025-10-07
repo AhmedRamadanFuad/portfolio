@@ -6,6 +6,7 @@ import About from "./sections/About";
 import Works from "./sections/Works";
 import Contact from "./sections/Contact";
 import Footer from "@/components/Footer";
+import Skills from "./sections/Skills";
 
 export default function HomePage() {
   return (
@@ -19,6 +20,8 @@ export default function HomePage() {
       <Hero />
 
       <About />
+
+      <Skills />
 
       <Works />
 

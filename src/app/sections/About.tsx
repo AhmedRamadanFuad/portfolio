@@ -4,6 +4,7 @@ import vectorAbout1 from "@/assets/vector-about1.png";
 import vectorAbout2 from "@/assets/vector-about2.png";
 import vectorAbout3 from "@/assets/vector-about3.png";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 function About() {
   return (
@@ -12,7 +13,13 @@ function About() {
       className="md:pt-[256px] pt-[100px] md:pb-[132px] pb-[60px] px-5 md:px-10"
     >
       <div className="container max-lg:flex-col max-lg:items-center justify-center flex gap-[179px]">
-        <div className="translate-y-[26px] relative sm:max-w-[389px] max-w-full">
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+          viewport={{ once: true, amount: 0.2 }}
+          className="translate-y-[26px] relative sm:max-w-[389px] max-w-full"
+        >
           <Image
             src={vectorAbout1}
             alt=""
@@ -41,15 +48,21 @@ function About() {
             {/* ...{" "}
             <span className="font-bold text-accent-foreground">Read more</span> */}
           </p>
-        </div>
-        <div className="md:w-[665.33px] max-w-[600px] md:h-[499px] relative">
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.5 }}
+          viewport={{ once: true, amount: 0.5 }}
+          className="md:w-[665.33px] max-w-[600px] md:h-[499px] relative"
+        >
           <Image src={about1} alt="" className="w-full h-full" />
           <Image
             src={about2}
             alt=""
             className="absolute md:w-[412.68px]  min-[430px]:w-[300px] w-[200px]  md:h-[353.14px] md:top-[224.3px] top-[44.8%] md:left-[108px] left-[16.2%]"
           />
-        </div>
+        </motion.div>
       </div>
       <div className="h-px w-full bg-[#EEEEEE]/10 md:mt-[163px] mt-[100px]" />
     </section>

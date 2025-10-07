@@ -7,6 +7,7 @@ import vectorContact1 from "@/assets/vector-contact-1.png";
 import vectorContact2 from "@/assets/vector-contact-2.png";
 import vectorContact3 from "@/assets/vector-contact-3.png";
 import { Send } from "lucide-react";
+import { motion } from "framer-motion";
 
 function Contact() {
   return (
@@ -15,7 +16,13 @@ function Contact() {
       className="flex items-center md:pt-[258px] pt-[100px] md:pb-[268px] pb-[100px] px-5 md:px-10"
     >
       <div className="container max-lg:flex-col max-lg:items-center max-lg:gap-[500px] max-sm:gap-[300px] justify-center flex gap-[145px]">
-        <div className="relative h-fit">
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
+          viewport={{ once: true, amount: 0.2 }}
+          className="relative h-fit"
+        >
           <Image
             src={contact1}
             alt=""
@@ -31,8 +38,14 @@ function Contact() {
             <br />
             <span className="text-primary">mind?</span>
           </h2>
-        </div>
-        <div className="flex-1 max-w-[600px] sm:space-y-6 space-y-3 relative">
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.7 }}
+          viewport={{ once: true, amount: 0.2 }}
+          className="flex-1 max-w-[600px] sm:space-y-6 space-y-3 relative"
+        >
           <Image
             src={vectorContact2}
             alt=""
@@ -77,7 +90,7 @@ function Contact() {
           <Button className="text-shadow-[0px_4px_4px_rgba(0,0,0,0.5)]">
             Send Message <Send size={20} />
           </Button>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

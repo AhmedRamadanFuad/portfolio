@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import React from "react";
+import { motion } from "framer-motion";
 
 function Footer() {
   const links = [
@@ -44,7 +45,13 @@ function Footer() {
   return (
     <footer className="md:pt-[100px] pt-[50px]  md:pb-[48px] pb-[30px] md:space-y-[92px] space-y-[40px] px-5 md:px-10">
       <div className="flex justify-center items-center flex-col md:gap-[38px] gap-[20px] text-accent-foreground">
-        <ul className="flex md:gap-12 gap-4 flex-wrap max-sm:justify-center">
+        <motion.ul
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
+          viewport={{ once: true, amount: 0.2 }}
+          className="flex md:gap-12 gap-4 flex-wrap max-sm:justify-center"
+        >
           {links.map((link) => (
             <li key={link.name}>
               <Link
@@ -55,8 +62,14 @@ function Footer() {
               </Link>
             </li>
           ))}
-        </ul>
-        <ul className="flex md:gap-6 gap-3">
+        </motion.ul>
+        <motion.ul
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.7 }}
+          viewport={{ once: true, amount: 0.2 }}
+          className="flex md:gap-6 gap-3"
+        >
           {socials.map((social, index) => (
             <li key={index}>
               <Link
@@ -67,7 +80,7 @@ function Footer() {
               </Link>
             </li>
           ))}
-        </ul>
+        </motion.ul>
       </div>
 
       {/* <p className="container text-accent text-sm md:text-lg text-end">
